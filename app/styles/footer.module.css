@@ -1,0 +1,16 @@
+.footer {
+    background: #DE7D24;
+    height: 80px;
+    bottom: 0;
+    /* Stick to the bottom */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+
+
+
+}
+
+@media screen and (max-width: 800px) {}

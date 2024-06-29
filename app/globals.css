@@ -1,33 +1,95 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: 'Sarabun', sans-serif;
+    /* ใช้ชื่อฟอนต์ที่คุณตั้งใน @font-face */
+    background-size: cover;
+    /* ปรับขนาดรูปภาพให้เต็มหน้าจอ */
+    background-image: url("/images/bg-fade.png");
+    background-repeat: no-repeat;
+    /* ไม่ให้รูปภาพซ้ำ */
+    background-attachment: fixed;
+    /* ให้รูปภาพติดกับหน้าจอ */
+    background-position: center;
+    /* จัดตำแหน่งรูปภาพให้อยู่กลาง */
+    overflow-x: hidden;
+    /* ป้องกันการเลื่อนซ้ายขวา */
+    margin: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.header {
+    background: #ffffff;
+    text-align: center;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* ไม่ให้รูปภาพซ้ำ */
+
+        background-attachment: fixed;
+        background-position: center;
+    }
+}
+
+@media (max-width: 1023px) {
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+}
+
+html {
+    overflow-x: hidden;
+    /* ป้องกันการเลื่อนซ้ายขวา */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    flex-grow: 1;
+    /* ให้ main-content ขยายเพื่อใช้พื้นที่ที่เหลือ */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวนอน */
+
+}
+
+.footer {
+    background: #ffffff;
+    /* สีพื้นหลังของ footer */
+    color: rgb(0, 0, 0);
+    /* สีตัวอักษรใน footer */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    /* ให้ footer มีความกว้างเต็ม */
+    font-family: 'Sarabun', sans-serif;
+
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    width: 100%;
+    /* ให้ footer มีความกว้างเต็ม */
+    max-width: 100%;
+
+    position: sticky;
+    bottom: 0px;
+    /* ให้ footer อยู่ที่ด้านล่างของหน้าจอ */
+    z-index: 999;
+    /* ให้ footer อยู่ด้านหน้าสุด */
+}
+
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px;
+        /* ปรับขนาดตัวอักษรในหน้าจอขนาดเล็ก */
+        padding: 10px;
+        /* ปรับขนาด padding ในหน้าจอขนาดเล็ก */
+    }
 }

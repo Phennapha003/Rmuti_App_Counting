@@ -1,0 +1,93 @@
+.BodyContainer {
+    display: block;
+    place-items: center;
+    padding: 10px 0px 10px 0px; /* บน ขวา ล่าง ซ้าย*/
+    margin: auto;
+    width: 80%;
+    height: auto;
+     
+    align-items: center;/* จัดให้อยู่กึ่งกลางในแนวดิ่ง */
+    justify-content: center;
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+.BodyContainer > label {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 40px;
+    margin: 10px;
+    
+}
+
+.ContainerContent {
+    display: flexbox;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContainerContent > h2 {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 19px;
+    font-weight: 100;
+
+    margin-bottom: 5px;
+}
+
+.ContainerContent > input {
+    width: 40%;
+    height: 90px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Sarabun', sans-serif;
+
+    background-color: #ccc;
+}
+
+.styleButton {
+    display: flex;
+    margin: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnClick {
+    margin: 20px 0 10px 0;
+}
+
+.btnClick button {
+    margin: 0 10px;
+    height: 4.5rem;
+    width: 9rem;
+    border-radius: 10px;
+    border: 0;
+    font-size: x-large;
+}
+
+.btnClick button.btnPlus {
+    background-color: green;
+    color: white;
+}
+
+.btnClick button.btnDelete {
+    background-color: red;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .BodyContainer {
+        width: 90%;
+    }
+
+    .BodyContainer>label {
+        font-size: 25px;
+    }
+
+    .ContainerContent > input {
+        width: 80%;
+    }
+}

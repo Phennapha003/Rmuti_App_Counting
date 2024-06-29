@@ -1,0 +1,360 @@
+.headers {
+    width: 100%; /* ใช้ vw เพื่อให้ความกว้างเต็มหน้าจอ */
+    height: 100%; /* กำหนดความสูงที่ต้องการ */
+    text-align: center;
+    justify-content: center;
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    background-color: white;
+    display: flex;
+    z-index: 1000;
+        /* ทำให้ header อยู่ด้านบน */
+}
+
+.bg {
+    height: 100%;
+    width: 100%;
+        /* ความกว้างเต็มหน้าจอ */
+    /* background-image: url("/images/bg-fade.png"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
+    display: flexbox;
+    flex-wrap: wrap;
+
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box; 
+}
+
+.ContainRow0 {
+    display: grid;
+    place-items: center;  
+    padding: 10px;
+    margin: auto;
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวดิ่ง */
+
+    width: 100%;
+    height: auto;
+
+    justify-content: center;
+    text-align: center;
+}
+
+.row_0 {
+    display: grid;
+    grid-template-columns: 420px 420px;
+    grid-template-rows: auto auto;
+    gap: 0px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    background-color: #ffffff00;
+    padding: 20px;
+    
+}
+
+.row_0>h {
+    background-color: rgb(255, 129, 75);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 30px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+
+    display: flex;
+    /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+/* ถาพรวม */
+
+.row_0>div {
+    background-color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 50px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+
+    display: flex; /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;/* จัดกึ่งกลางในแนวนอน */
+    align-items: center;/* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+.row_0>div>per1 {
+    box-sizing: border-box;
+    border: 1px solid #303030;
+    padding: 5px 5px;
+    transform: translate(8px, 15px);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Sarabun', sans-serif;
+}
+
+.row_1 {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 80px 90px;
+    gap: 0px;
+    background-color: #ffffff00;
+    padding: 5px;
+}
+
+.row_1>h {
+    background-color: rgb(255, 129, 75);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 30px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+
+    display: flex;
+    /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+.row_1> h_remain {
+    background-color: rgb(157, 156, 156);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 30px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+
+    display: flex;
+    /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+.row_1>div {
+    background-color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 35px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+    
+
+    display: flex;
+    /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+.row_1>div>per {
+    box-sizing: border-box;
+    border: 1px solid #303030;
+    padding: 5px 5px;
+    transform: translate(10px, 20px);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Sarabun', sans-serif;
+}
+
+.column {
+    width: 50%;
+    /* กว้างของคอลัมน์ */
+    box-sizing: border-box;
+    border: 1px solid #707070;
+}
+
+.text1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.percent h1 {
+    box-sizing: border-box;
+    border: 1px solid #777777;
+    padding: 5px 5px;
+    transform: translate(0px, 35px);
+    border-radius: 15px;
+    border-radius: 10px;
+}
+
+
+.FacultyName {
+    display: grid;
+    grid-template-columns: 250px;
+    grid-template-rows: 60px 70px;
+    gap: 0px;
+    background-color: #ffffff00;
+    padding: 5px;
+    margin-top: 24.5px;
+}
+
+.FacultyName>h {
+    background-color: rgb(255, 129, 75);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 30px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+
+    display: flex;
+    /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+.FacultyName>div {
+    background-color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 20px;
+    border: 1px solid #000000;
+    font-family: 'Sarabun', sans-serif;
+
+    display: flex;
+    /* ใช้ Flexbox ในการจัดตำแหน่ง */
+    justify-content: center;
+    /* จัดกึ่งกลางในแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางในแนวดิ่ง */
+}
+
+
+.TimeGnGfnTest > div {
+    justify-content: center;
+    text-align: center;
+    font-family: 'Sarabun', sans-serif;
+}
+
+.ContainTimeGnGfn {
+    display: flex; /* ใช้ flexbox สำหรับจัดวางในแนวนอน */
+    width: 100%; /* กำหนดความกว้างให้เต็มบรรทัด */
+    margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่างเพื่อเว้นบรรทัด */
+    gap: 190px;
+    transform: translate(-145px, 0px);
+    justify-content: center;
+}
+
+.ContainOverview {
+    display: flex; /* ใช้ flexbox สำหรับจัดวางในแนวนอน */
+    width: 100%; /* กำหนดความกว้างให้เต็มบรรทัด */
+    margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่างเพื่อเว้นบรรทัด */
+    justify-content: center;
+}
+
+.Overview {
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid #303030;
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    height: 45px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.Overview>div {
+    justify-content: center;
+    text-align: center;
+    font-family: 'Sarabun', sans-serif;
+}
+
+@font-face {
+    font-family: 'Sarabun';
+    src: url('D: \Project wepapp\rmuti-app\public\Font\Sarabun-Regular.ttf') format('truetype');
+    /* ตั้งชื่อฟอนต์ตามที่คุณต้องการและเปลี่ยนที่อยู่ของไฟล์ฟอนต์ให้ตรงกับโครงสร้างโปรเจคของคุณ */
+}
+
+.ContainAll {
+    display: grid;
+    place-items: center;  
+    padding: 20px;
+}
+
+.TimeGnGfnTest {
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid #303030;
+    padding: 5px 5px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 25px;
+    height: 45px;
+    width: 120px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.containFacultyName {
+    display: flex;
+    place-items: center;
+    height: 200px;
+}
+
+.Container {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    align-items: center;
+    flex-direction: row;
+    height: 260px;
+    padding: 5px;
+    margin: 15px;
+}
+
+@media (max-width: 768px) {
+    .Container {
+        flex-direction: column;
+        /* เปลี่ยนเป็นเรียงแนวตั้งเมื่อหน้าจอเล็กกว่า 768px */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .Container {
+        width: 100%;/* ทำให้ container ทุกตัวเต็มความกว้างของ viewport */
+        height: 100%;
+    }
+
+    .bg {
+        width: 100%;/* ทำให้ container ทุกตัวเต็มความกว้างของ viewport */
+        height: 100%;
+        display: flex;
+    }
+
+    .ContainRow0 {
+        width: 100%;/* ทำให้ container ทุกตัวเต็มความกว้างของ viewport */
+        height: 100%;
+    }
+
+    .row_0 {
+        width: 80%;
+        grid-template-columns: auto auto;
+        margin: 15px 80px;
+    }
+
+    .headers {
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .row_0 {
+            width: 75%; /*ปรับเพื่อไอโฟน se โดยเฉพาะ*/
+            grid-template-columns: auto auto;
+            margin: 15px 80px;
+    }
+}

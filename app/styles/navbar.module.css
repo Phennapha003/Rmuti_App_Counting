@@ -1,0 +1,99 @@
+.container {
+    max-width: auto;
+    margin: 0;
+}
+
+.header {
+    background: #fff;
+    height: 100px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+}
+
+.logoContainer .logo {
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+}
+
+.menuLink {
+    padding-right: 2.5rem;
+    text-decoration: none;
+    color: #000;
+    font-size: large;
+    font-weight: bold;
+
+    font-family: 'Sarabun', sans-serif;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .mobileMenu {
+        display: block;
+        color: #000;
+        font-size: 2rem;
+    }
+
+    .header {
+        padding: 0 2rem;
+    }
+
+    .logoContainer .logo {
+        margin-top: 10px;
+        height: auto;
+        max-width: 85%;
+    }
+
+    .menu {
+        width: 100%;
+        height: auto;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 71px;
+        left: -100%;
+        opacity: 0;
+        transition: 0.5s ease;
+    }
+
+    .menu.active {
+        background: #111;
+        left: 0;
+        opacity: 0.95;
+        z-index: 1;
+        padding-left: 0;
+        align-content: center;
+        transition: 0.5s ease;
+    }
+
+    .menuActive li a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .menu li {
+        padding-right: 0;
+
+    }
+
+    .menuLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vw;
+        padding: 10px 0;
+        color: #fff;
+        font-weight: bold;
+    }
+}
