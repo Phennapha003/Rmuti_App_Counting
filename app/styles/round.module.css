@@ -12,7 +12,7 @@
 
 .ContainerHeadRound {
     font-family: 'Sarabun', sans-serif;
-    font-size: 24px;
+    font-size: 35px;
     margin: 10px;
 }
 
@@ -22,18 +22,19 @@
     align-items: center;
     justify-content: center;
     font-family: 'Sarabun', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     margin: 10px;
 }
 
 .Content1 > input {
-    width: auto;
-    height: 15px;
+    width: 300px;
+    height: 25px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin: 5px;
     font-family: 'Sarabun', sans-serif;
+    font-size: 15px;
 }
 
 .ContainerAll > button {

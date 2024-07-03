@@ -43,23 +43,46 @@ export default function Faculty() {
         }
     };
 
+    
+
     return (
         <div>
             <Navber />
             <div className={styles.container}>
-                <div>รายชื่อหน่วยงาน</div>
-                <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
-                <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
+                <div className={styles.ContainerTopic}>รายชื่อหน่วยงาน</div>
+                    
                 {loading ? (<div>Loading...</div>) : (
-                    facultys.map((faculty) => (
-                        <div key={faculty.idfaculty}>
-                            {faculty.name} : &nbsp;
-                            {faculty.total} ราย | &nbsp;
-                            {faculty.rname}
-                            <button onClick={() => handleDelete(faculty.idfaculty)}>ลบ</button>
-                        </div>
-                    ))
+                    
+                    <div className={styles.containerTable}>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr className={styles.tr}>
+                                    <th className={styles.th}>บัณฑิตศึกษา</th>
+                                    <th className={styles.th}>จำนวน</th>
+                                    <th className={styles.th}>รอบ</th>
+                                    <th className={styles.th}></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {facultys.map((faculty) => (
+                                    <tr className={styles.tr} key={faculty.idfaculty}>
+                                        <td className={styles.td}>{faculty.name}</td>
+                                        <td className={styles.td}>{faculty.total} ราย</td>
+                                        <td className={styles.td}>{faculty.rname}</td>
+                                        <td className={styles.td}>
+                                            <button className={styles.ButtonDelete} onClick={() => handleDelete(faculty.idfaculty)}>ลบ</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )}
+
+                <div className={styles.stylesButton}>
+                    <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
+                    <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
+                </div>
             </div>
             <Footer />
         </div>

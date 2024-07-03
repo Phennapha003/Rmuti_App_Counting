@@ -1,0 +1,23 @@
+.BodyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: 'Sarabun', sans-serif;
+}
+
+.BodyContainer > h1 {
+    font-size: 30px;
+    margin: 20px;
+    font-weight: 100;
+}
+
+.containerForm {
+    display: flexbox;
+    width: 80%;
+    padding: 10px;
+}
+

@@ -81,7 +81,7 @@ export default function Round() {
         <div>
             <Navbar />
             <div className={styles.ContainerAll}>
-                <div className={styles.ContainerHeadRound}>Round</div>
+                <div className={styles.ContainerHeadRound}>รอบเข้ารับ</div>
                 {rounds.round.map((round, index) => (
                     <div key={index} className={styles.Content1}>
                         รอบ : <input type="text" value={round.name} onChange={(e) => handleNameChange(index, e.target.value)} /> &nbsp;

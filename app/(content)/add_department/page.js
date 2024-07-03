@@ -5,6 +5,7 @@ import Footer from "@/app/components/footer";
 import postData from "@/app/components/CLUD/post";
 import Handle_Click from "@/app/components/handle/handleclick";
 import { useRouter } from 'next/navigation';
+import styles from '@/app/styles/add_department.module.css';
 
 export default function AddDepartment() {
     const [name, setName] = useState('');
@@ -37,40 +38,41 @@ export default function AddDepartment() {
     return (
         <div>
             <Navbar />
-            <div>
-                เพิ่มหน่วยงาน
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        หน่วยงาน : &nbsp;
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        จำนวนเข้ารับ : &nbsp;
-                        <input
-                            type="number"
-                            value={total}
-                            onChange={(e) => setTotal(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        รอบ : &nbsp;
-                        <select value={rname} onChange={(e) => setRname(e.target.value)} required>
-                            <option value="">เลือกรอบ</option>
-                            {roundOptions.map((option, i) => (
-                                <option key={i} value={option}>{option}</option>
-                            ))}
-                        </select>
-                    </div>
+            <div className={styles.BodyContainer}>
+                <h1>เพิ่มหน่วยงาน</h1>
+                <form onSubmit={handleSubmit} className={styles.containerForm}>
+                        <div className={styles.nameFaculty}>
+                            หน่วยงาน : &nbsp;
+                            <input className={styles.input}
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className={styles.number}>
+                            จำนวนเข้ารับ : &nbsp;
+                            <input
+                                type="number"
+                                value={total}
+                                onChange={(e) => setTotal(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className={styles.round}>
+                            รอบ : &nbsp;
+                            <select value={rname} onChange={(e) => setRname(e.target.value)} required>
+                                <option value="">เลือกรอบ</option>
+                                {roundOptions.map((option, i) => (
+                                    <option key={i} value={option}>{option}</option>
+                                ))}
+                            </select>
+                        </div>
 
-                    <button type="submit">บันทึก</button>
+                        <button type="submit">บันทึก</button>
 
-                </form>
+                    </form>
+                
                 <Handle_Click path="/faculty" buttonText="ย้อนกลับ" />
             </div>
             <Footer />
