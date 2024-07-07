@@ -22,12 +22,15 @@
 .stylesButton > button {
     width: auto;
     margin: 5px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     background-color: #cd8a3e;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
 }
 
 .containerTable {
@@ -74,7 +77,6 @@ tbody .tr:nth-of-type(odd) {
 
 .ButtonDelete {
     width: auto;
-    
     padding: 5px 10px;
     background-color: #cd8a3e;
     color: white;

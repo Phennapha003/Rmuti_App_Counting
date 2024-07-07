@@ -1,5 +1,6 @@
-'use client'
-    ; import { useState } from 'react';
+'use client'; 
+
+import { useState } from 'react';
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import postData from "@/app/components/CLUD/post";
@@ -27,11 +28,12 @@ export default function AddDepartment() {
             setName('');
             setTotal('');
             setRname('');
+            router.push("/faculty");
         } catch (error) {
             console.error('Error adding department:', error);
             // Handle error case
         }
-        router.push("/faculty");
+        
     };
 
 
@@ -43,14 +45,14 @@ export default function AddDepartment() {
                 <form onSubmit={handleSubmit} className={styles.containerForm}>
                         <div className={styles.nameFaculty}>
                             หน่วยงาน : &nbsp;
-                            <input className={styles.input}
+                            <input 
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
                             />
                         </div>
-                        <div className={styles.number}>
+                        <div className={styles.numberStyle}>
                             จำนวนเข้ารับ : &nbsp;
                             <input
                                 type="number"
@@ -59,7 +61,7 @@ export default function AddDepartment() {
                                 required
                             />
                         </div>
-                        <div className={styles.round}>
+                        <div className={styles.roundStyle}>
                             รอบ : &nbsp;
                             <select value={rname} onChange={(e) => setRname(e.target.value)} required>
                                 <option value="">เลือกรอบ</option>
@@ -69,11 +71,14 @@ export default function AddDepartment() {
                             </select>
                         </div>
 
-                        <button type="submit">บันทึก</button>
-
+                        <div>
+                            <button type="submit" className={styles.buttonSave}>บันทึก</button>
+                        <Handle_Click className={styles.buttonBack} path="/faculty" buttonText="ย้อนกลับ" /> 
+                        </div>
+                               
                     </form>
                 
-                <Handle_Click path="/faculty" buttonText="ย้อนกลับ" />
+                
             </div>
             <Footer />
         </div>

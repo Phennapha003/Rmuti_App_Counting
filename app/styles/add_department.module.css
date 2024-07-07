@@ -10,14 +10,77 @@
 }
 
 .BodyContainer > h1 {
-    font-size: 30px;
-    margin: 20px;
+    font-size: 35px;
+    margin: 15px;
     font-weight: 100;
 }
 
 .containerForm {
     display: flexbox;
-    width: 80%;
+    width: 60%;
     padding: 10px;
+
+    font-size: 20px;
+
 }
 
+.roundStyle,
+.numberStyle,
+.nameFaculty {
+    margin-bottom: 10px;
+}
+
+/* .nameFaculty > input,
+.numberStyle > input{
+    width: 60%;
+    height: 25px;
+}
+
+.roundStyle > select {
+    width: 60%;
+    height: 30px;
+
+    font-family: 'sarabun', sans-serif;
+} */
+
+.roundStyle,
+.numberStyle,
+.nameFaculty {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    /* ให้ div ใช้พื้นที่เต็มของฟอร์ม */
+}
+
+.nameFaculty>input,
+.numberStyle>input,
+.roundStyle>select {
+    flex: 1; 
+    height: 30px;
+    font-family: 'Sarabun', sans-serif;
+    margin-left: 10px; /* เพิ่มช่องว่างระหว่าง label กับ input */
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.roundStyle>select {
+    height: 36px;
+}
+
+
+.buttonBack,
+.buttonSave {
+    width: auto;
+    padding: 5px 20px;
+    background-color: #cd8a3e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
+}

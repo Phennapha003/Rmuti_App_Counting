@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 
-function Handle_Click({ path, buttonText }) {
+function Handle_Click({ path, buttonText, className }) {
     const router = useRouter();
     const handle_Click = () => {
         // Navigate to the next page
@@ -9,7 +9,7 @@ function Handle_Click({ path, buttonText }) {
     };
     return (
         <>
-            <button onClick={handle_Click}>{buttonText}</button>
+            <button className={className} onClick={handle_Click}>{buttonText}</button>
         </>
     );
 }
