@@ -10,8 +10,9 @@
 
 .ContainerTopic {
     font-family: 'Sarabun', sans-serif;
-    font-size: 24px;
+    font-size: 35px;
     margin: 20px;
+    font-weight: 700;
 }
 
 .stylesButton {
@@ -20,10 +21,11 @@
 }
 
 .stylesButton > button {
-    width: auto;
+    width: 60px;
+    height: 40px;
     margin: 5px;
-    padding: 5px 20px;
-    background-color: #cd8a3e;
+    padding: 5px 10px;
+    background-color: #DE7D24;
     color: white;
     border: none;
     border-radius: 4px;
@@ -34,7 +36,7 @@
 }
 
 .containerTable {
-    background-color: #ffba4ae9;
+    background-color: #fdb953e9;
     padding: 10px;
     border-radius: 13px;
     width: 80%;
@@ -64,11 +66,11 @@
 
     justify-content: center;
     text-align: center;
+    font-size: 20px;
 }
 
 tbody .tr:nth-of-type(odd) {
     background-color: #fff;
-    /* สีขาว */
 }
 
 /* .tr:hover {
@@ -78,9 +80,10 @@ tbody .tr:nth-of-type(odd) {
 .ButtonDelete {
     width: auto;
     padding: 5px 10px;
-    background-color: #cd8a3e;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
+

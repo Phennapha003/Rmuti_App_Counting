@@ -17,17 +17,18 @@
 
 .containerForm {
     display: flexbox;
-    width: 60%;
+    width: 40%;
     padding: 10px;
-
+    background-color: #fdb953e9;
     font-size: 20px;
-
+    border-radius: 13px;
+    margin-bottom: 20px;
 }
 
 .roundStyle,
 .numberStyle,
 .nameFaculty {
-    margin-bottom: 10px;
+    margin: 10px 10px 10px 30px;
 }
 
 /* .nameFaculty > input,
@@ -49,8 +50,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    width: 100%;
-    /* ให้ div ใช้พื้นที่เต็มของฟอร์ม */
+    width: 90%;
 }
 
 .nameFaculty>input,
@@ -59,28 +59,60 @@
     flex: 1; 
     height: 30px;
     font-family: 'Sarabun', sans-serif;
-    margin-left: 10px; /* เพิ่มช่องว่างระหว่าง label กับ input */
+    margin-left: 10px; 
 
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
 }
+
 
 .roundStyle>select {
     height: 36px;
 }
 
 
-.buttonBack,
-.buttonSave {
-    width: auto;
-    padding: 5px 20px;
-    background-color: #cd8a3e;
+.buttonBack {
+    padding: 10px 20px;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin: 10px;
-
     font-family: 'Sarabun', sans-serif;
     font-size: 18px;
+}
+
+.buttonSave {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
+}
+
+@media (max-width: 600px) {
+    .containerForm {
+        display: flexbox;
+        width: 60%;
+        padding: 10px;
+        background-color: #fdb953e9;
+        font-size: 20px;
+        border-radius: 13px;
+
+    }
+
+    .roundStyle,
+    .numberStyle,
+    .nameFaculty {
+        display: block;
+        align-items: center;
+        margin: 10px 10px 10px 5px;
+        width: 90%;
+    }
+
 }
