@@ -62,8 +62,6 @@
 }
 
 .th {
-    /* background-color: #cd8a3e; */
-
     justify-content: center;
     text-align: center;
     font-size: 20px;
@@ -77,6 +75,7 @@ tbody .tr:nth-of-type(odd) {
     background-color: #ddd;
 } */
 
+
 .ButtonDelete {
     width: auto;
     padding: 5px 10px;
@@ -87,3 +86,9 @@ tbody .tr:nth-of-type(odd) {
     cursor: pointer;
 }
 
+@media (max-width: 600px) {
+
+    .containerTable {
+        width: 90%;
+    }
+}

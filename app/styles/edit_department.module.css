@@ -1,0 +1,160 @@
+.BodyContainer {
+    display: block;
+    place-items: center;
+    padding: 10px 0px 10px 0px;
+    /* บน ขวา ล่าง ซ้าย */
+    margin: auto;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    /* จัดให้อยู่กึ่งกลางในแนวดิ่ง */
+    justify-content: center;
+    text-align: center;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 30px;
+    box-sizing: border-box;
+}
+
+.TableContain {
+    display: flex;
+    justify-content: center;
+    /* จัดกลางแนวนอน */
+    align-items: center;
+    /* จัดกลางแนวตั้ง */
+    padding: 45px;
+    background-color: #f3a023;
+    border-radius: 15px;
+    margin: 30px;
+    /* เพิ่ม margin เพื่อให้ไม่ชิดกอบ */
+}
+
+.Table1 {
+    border-collapse: collapse;
+    width: 80%;
+    font-family: 'Sarabun', sans-serif;
+    margin: 0px auto;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    /* จัดระยะห่างระหว่าง input fields */
+    align-items: center;
+}
+
+.Containers {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #ffae34;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 10px 2rem 0;
+    text-align: center;
+
+}
+
+.ContainerDown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+    margin: 20px;
+}
+
+.buttonDown {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f3a023;
+    /* สีพื้นหลัง */
+    color: white;
+    /* สีตัวอักษร */
+    padding: 5px 20px;
+    /* ระยะห่างภายในปุ่ม */
+    border: none;
+    /* ไม่มีขอบ */
+    border-radius: 5px;
+    /* มุมโค้ง */
+    cursor: pointer;
+    /* เปลี่ยนเคอร์เซอร์เมื่ออยู่เหนือปุ่ม */
+}
+
+.inputField {
+    width: calc(30% - 20px);
+    padding: 8px;
+    /* Reduced padding */
+    margin: 10px auto;
+    /* Center vertically and horizontally */
+    border: 1px solid #ffffff;
+    /* Reduced border width */
+    resize: vertical;
+    border: none;
+    border: 2px solid rgba(93, 93, 93, 0.808);
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.inputField:focus {
+    outline: none;
+    /* ลบเส้นโค้งเมื่อกล่องข้อความได้รับการเลือก */
+    border-color: #525252;
+    /* เปลี่ยนสีเส้นขอบเมื่อกล่องข้อความได้รับการเลือก */
+    box-shadow: 0 0 5px rgba(73, 73, 73, 0.5);
+    /* เพิ่มเงาเมื่อกล่องข้อความได้รับการเลือก */
+}
+
+.inputField::placeholder {
+    color: #aaa;
+    /* สีข้อความใน placeholder */
+}
+
+.inputField[type="number"] {
+    width: 50%;
+    /* กำหนดความกว้างสำหรับ input type number */
+    text-align: center;
+    /* จัดข้อความกลางแนวตั้ง */
+}
+
+.inputField[type="submit"] {
+    background-color: #007bff;
+    /* สีพื้นหลังปุ่ม submit */
+    color: white;
+    /* สีข้อความในปุ่ม submit */
+    cursor: pointer;
+    /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อเม้าส์อยู่เหนือปุ่ม */
+}
+
+.inputField[type="submit"]:hover {
+    background-color: #0056b3;
+    /* เปลี่ยนสีพื้นหลังปุ่ม submit เมื่อโฮเวอร์ */
+}
+
+/* Style for the select box */
+.formselect {
+    width: 20%;
+    padding: 8px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgba(93, 93, 93, 0.808);
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+/* Custom arrow for the select box */
+@font-face {
+    font-family: 'Sarabun';
+    src: url('/font/Sarabun-Regular.ttf') format('truetype');
+    /* ตรวจสอบและแก้ไขที่อยู่ของไฟล์ฟอนต์ให้ตรงกับโครงสร้างโปรเจคของคุณ */
+}
+
+.BodyContainer,
+.Table1,
+.myButtonEdit,
+.buttonDown,
+.popupContent>h2,
+.inputField,
+.input,
+.inputnumber,
+.formselect {
+    font-family: 'Sarabun', sans-serif;
+}
