@@ -46,11 +46,10 @@
     }
 
     .header {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 
     .logoContainer .logo {
-        margin-top: 10px;
         height: auto;
         max-width: 85%;
     }

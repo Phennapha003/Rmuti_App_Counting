@@ -35,45 +35,36 @@ export default function Round() {
     const handleTotalChange = (index, value) => {
         setRounds(prevState => {
             const updatedRounds = [...prevState.round];
-            updatedRounds[index].total = value;
+            updatedRounds[index].total = parseInt(value, 10);
             return { round: updatedRounds };
         });
     };
 
-    const saveRound = async (roundToUpdate) => {
-        console.log('Saving round:', roundToUpdate);
-
+    const saveRounds = async () => {
         try {
-            const response = await fetch('/API/round', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id: roundToUpdate.idround,  // Ensure the field name matches the backend
-                    name: roundToUpdate.name,
-                    total: roundToUpdate.total
-                }),
-            });
+            for (let roundToUpdate of rounds.round) {
+                const response = await fetch('/API/round', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: roundToUpdate.idround,
+                        name: roundToUpdate.name,
+                        total: roundToUpdate.total
+                    }),
+                });
 
-            if (!response.ok) {
-                throw new Error('Failed to update round');
+                if (!response.ok) {
+                    throw new Error(`Failed to update round with ID ${roundToUpdate.idround}`);
+                }
             }
 
-            console.log('Round updated successfully');
-            // Update local state after successful update
-            setRounds(prevState => {
-                const updatedRounds = prevState.round.map(r => {
-                    if (r.idround === roundToUpdate.idround) {
-                        return { ...r, name: roundToUpdate.name, total: roundToUpdate.total };
-                    }
-                    return r;
-                });
-                return { round: updatedRounds };
-            });
-
+            console.log('Rounds updated successfully');
+            fetchRounds();
+            alert("บันทึกข้อมูลสำเร็จแล้ว");
         } catch (error) {
-            console.error('Error updating round:', error.message);
+            console.error('Error updating rounds:', error.message);
         }
     };
 
@@ -82,16 +73,16 @@ export default function Round() {
             <Navbar />
             <div className={styles.ContainerAll}>
                 <div className={styles.ContainerHeadRound}>รอบเข้ารับ</div>
-                {rounds.round.map((round, index) => (
-                    <div key={index} className={styles.Content1}>
-                        รอบ : <input type="text" value={round.name} onChange={(e) => handleNameChange(index, e.target.value)} /> &nbsp;
-                        จำนวนเข้ารับ : <input type="text" value={round.total} onChange={(e) => handleTotalChange(index, e.target.value)} /> &nbsp;
-                        
-                    </div>
-                ))}
-                <button onClick={() => saveRound(round)}>บันทึก</button>
+                <div className={styles.container}>
+                    {rounds.round.map((round, index) => (
+                        <div key={index} className={styles.Content1}>
+                            รอบ : <input type="text" value={round.name} onChange={(e) => handleNameChange(index, e.target.value)} /> &nbsp;
+                            จำนวนเข้ารับ : <input type="number" value={round.total} onChange={(e) => handleTotalChange(index, e.target.value)} /> &nbsp;
+                        </div>
+                    ))}
+                </div>
+                <button onClick={saveRounds}>บันทึก</button>
             </div>
-            
             <Footer />
         </div>
     );

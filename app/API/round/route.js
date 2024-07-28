@@ -1,29 +1,14 @@
-// import { NextResponse } from "next/server";
-// import pool from "@/app/lib/mysql";
-// import { redirect } from "next/navigation"
-
-// export async function GET(request) {
-//     try {
-//         const connection = await pool.getConnection();
-//         const query = 'select * from round'
-//         const [rows] = await connection.execute(query)
-//         connection.release()
-//         return NextResponse.json({ round: rows })
-
-//     } catch (error) {
-//         return NextResponse.json({
-//             error
-//         }, { status: 500 })
-//     }
-// }
-
 import { NextResponse } from "next/server";
 import pool from "@/app/lib/mysql";
-
 export async function GET(request) {
     try {
         const connection = await pool.getConnection();
-        const query = 'SELECT * FROM round';
+        const query = `
+            SELECT round.idround, round.name, SUM(faculty.total) as total
+            FROM round
+            LEFT JOIN faculty ON round.idround = faculty.idround
+            GROUP BY round.idround, round.name
+        `;
         const [rows] = await connection.execute(query);
         connection.release();
         return NextResponse.json({ round: rows });
@@ -31,6 +16,7 @@ export async function GET(request) {
         return NextResponse.json({ error }, { status: 500 });
     }
 }
+
 
 export async function PUT(request) {
     try {
