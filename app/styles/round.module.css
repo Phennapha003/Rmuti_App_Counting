@@ -2,14 +2,11 @@
     background-color: #fdb953e9;
     padding: 10px;
     border-radius: 13px;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
-    /* Center horizontally */
     display: flex;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
     flex-direction: column;
     margin-bottom: 15px;
 }
@@ -65,92 +62,25 @@
     font-size: 18px;
 }
 
-@media (max-width: 768px) {
-    .container {
-        width: 80%;
-        padding: 8px 0;
-        /* Adjust container width for medium screens */
-    }
-
-    .Content1 {
-        font-size: 18px;
-    }
-
-    .Content1>input {
-        width: 40%;
-        /* Adjust input width for medium screens */
-        height: 20px;
-        padding: 6px;
-        font-size: 14px;
-    }
-
-    .ContainerAll>button {
-        padding: 8px;
-        font-size: 14px;
-        width: auto;
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 8px 0;
-        /* Adjust container width for small screens */
-    }
-
-    .ContainerHeadRound {
-        font-size: 28px;
-        margin: 15px;
-    }
-
-    .Content1 {
-        font-size: 16px;
-    }
-
-    .Content1>input {
-        width: 90%;
-        /* Adjust input width for small screens */
-        height: 20px;
-        padding: 6px;
-        font-size: 14px;
-    }
-
-    .ContainerAll>button {
-        width: auto;
-        padding: 8px;
-        font-size: 14px;
-    }
-}
-
 @media (max-width: 480px) {
     .container {
-        width: 95%;
-        /* Adjust container width for very small screens */
-        padding: 8px 0;
-    }
-
-    .ContainerHeadRound {
-        font-size: 24px;
-        margin: 10px;
+        width: 90%;
     }
 
     .Content1 {
-        font-size: 14px;
-        flex-direction: column;
-        /* Stack inputs vertically */
-        padding: 1px;
-        margin: 1px;
+        font-size: 15px;
+        width: 100%;
     }
 
     .Content1>input {
-        width: 100%;
-        /* Full width inputs for very small screens */
-
+        width: 16%;
+        padding: 4px;
+        font-size: 13px;
     }
+}
 
-    .ContainerAll>button {
-        width: 100%;
-        /* Full width button for very small screens */
-        width: auto;
+@media (max-width: 768px) {
+     .container {
+        width: 80%;
     }
 }

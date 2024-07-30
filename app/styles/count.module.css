@@ -36,16 +36,18 @@
 }
 
 .ContainerContent > input {
-    width: 40%;
-    height: 90px;
-    padding: 8px;
+    width: 40%; 
+    height: 120px;
+    padding: 12px; 
     border: 1px solid #ccc;
     border-radius: 10px;
     margin: 5px;
     font-family: 'Sarabun', sans-serif;
-
+    font-size: 70px; 
     background-color: #ccc;
+    text-align: center;
 }
+
 
 .styleButton {
     display: flex;

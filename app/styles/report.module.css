@@ -65,11 +65,8 @@
     font-family: 'Sarabun', sans-serif;
 
     display: flex;
-    /* ใช้ Flexbox ในการจัดตำแหน่ง */
     justify-content: center;
-    /* จัดกึ่งกลางในแนวนอน */
     align-items: center;
-    /* จัดกึ่งกลางในแนวดิ่ง */
 }
 
 /* ถาพรวม */
@@ -82,9 +79,9 @@
     border: 1px solid #000000;
     font-family: 'Sarabun', sans-serif;
 
-    display: flex; /* ใช้ Flexbox ในการจัดตำแหน่ง */
-    justify-content: center;/* จัดกึ่งกลางในแนวนอน */
-    align-items: center;/* จัดกึ่งกลางในแนวดิ่ง */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
 
 .row_0>div>per1 {
@@ -316,14 +313,14 @@
     margin: 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait){
     .Container {
         flex-direction: column;
         /* เปลี่ยนเป็นเรียงแนวตั้งเมื่อหน้าจอเล็กกว่า 768px */
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (orientation: portrait) {
     .Container {
         width: 100%;/* ทำให้ container ทุกตัวเต็มความกว้างของ viewport */
         height: 100%;
@@ -351,10 +348,48 @@
     }
 }
 
-@media only screen and (max-width: 670px) {
+@media only screen and (max-width: 670px) and (orientation: portrait) {
     .row_0 {
             width: 75%; /*ปรับเพื่อไอโฟน se โดยเฉพาะ*/
             grid-template-columns: auto auto;
             margin: 15px 80px;
+    }
+}
+
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+    .Container {
+        flex-direction: column;
+        /* เปลี่ยนเป็นแนวตั้งเพื่อหลีกเลี่ยงการหลุดออก */
+        width: 100%;
+        /* กว้างเต็มหน้าจอ */
+        height: auto;
+        /* ปรับสูงให้พอดีกับเนื้อหา */
+    }
+
+    .bg {
+        width: 100%;
+        /* กว้างเต็มหน้าจอ */
+        height: auto;
+        /* ปรับสูงให้พอดีกับเนื้อหา */
+    }
+
+    .ContainRow0 {
+        width: 100%; /* กว้างเต็มหน้าจอ */
+        height: auto; /* ปรับสูงให้พอดีกับเนื้อหา */
+    }
+
+    .row_0 {
+        width: 92%;
+        grid-template-columns: 220px 220px;
+        margin: 15px auto;
+    }
+
+    .headers {
+        width: 100vw;
+        height: auto;
+    }
+
+    .percent h1 {
+        font-size: 20px;
     }
 }
