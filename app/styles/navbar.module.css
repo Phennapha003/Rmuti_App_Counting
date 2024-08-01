@@ -1,11 +1,12 @@
 .container {
     max-width: auto;
     margin: 0;
+    font-family: 'Sarabun';
 }
 
 .header {
     background: #fff;
-    height: 100px;
+    height: 120px;
 }
 
 .headerContainer {
@@ -16,7 +17,7 @@
 }
 
 .logoContainer .logo {
-    justify-content: center;
+    margin-top: 10px;
 }
 
 .menu {
@@ -30,12 +31,21 @@
     color: #000;
     font-size: large;
     font-weight: bold;
-
-    font-family: 'Sarabun', sans-serif;
 }
 
 .mobileMenu {
     display: none;
+}
+
+.username {
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.button {
+    font-weight: bold;
 }
 
 @media screen and (max-width: 800px) {
@@ -46,10 +56,11 @@
     }
 
     .header {
-        padding: 0 1rem;
+        padding: 0 2rem;
     }
 
     .logoContainer .logo {
+        margin-top: 10px;
         height: auto;
         max-width: 85%;
     }
@@ -93,6 +104,17 @@
         height: 10vw;
         padding: 10px 0;
         color: #fff;
+        font-weight: bold;
+    }
+
+    .username {
+        font-family: 'Noto Sans Thai', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffffcb;
+    }
+
+    .button {
         font-weight: bold;
     }
 }

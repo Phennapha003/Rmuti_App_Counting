@@ -13,7 +13,7 @@ export default function Round() {
 
     const fetchRounds = async () => {
         try {
-            const response = await fetch('/API/round');
+            const response = await fetch('/api/round');
             if (!response.ok) {
                 throw new Error('Failed to fetch rounds');
             }

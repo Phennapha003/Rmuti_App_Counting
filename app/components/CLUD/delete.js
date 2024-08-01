@@ -1,7 +1,7 @@
 // delete.js (assuming this is under "@/app/components/CLUD/delete")
 export default async function deleteData(idfaculty) {
     try {
-        const response = await fetch('/API/faculty', {
+        const response = await fetch('/api/faculty', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

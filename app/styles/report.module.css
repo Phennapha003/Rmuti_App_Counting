@@ -324,6 +324,7 @@
     .Container {
         width: 100%;/* ทำให้ container ทุกตัวเต็มความกว้างของ viewport */
         height: 100%;
+
     }
 
     .bg {
@@ -359,23 +360,18 @@
 @media only screen and (max-width: 932px) and (orientation: landscape) {
     .Container {
         flex-direction: column;
-        /* เปลี่ยนเป็นแนวตั้งเพื่อหลีกเลี่ยงการหลุดออก */
         width: 100%;
-        /* กว้างเต็มหน้าจอ */
         height: auto;
-        /* ปรับสูงให้พอดีกับเนื้อหา */
     }
 
     .bg {
         width: 100%;
-        /* กว้างเต็มหน้าจอ */
         height: auto;
-        /* ปรับสูงให้พอดีกับเนื้อหา */
     }
 
     .ContainRow0 {
-        width: 100%; /* กว้างเต็มหน้าจอ */
-        height: auto; /* ปรับสูงให้พอดีกับเนื้อหา */
+        width: 100%;
+        height: auto; 
     }
 
     .row_0 {

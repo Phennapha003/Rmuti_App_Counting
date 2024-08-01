@@ -4,12 +4,20 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import styles from "@/app/styles/navbar.module.css" // Adjust the path accordingly
 import Link from 'next/link';
 import Image from 'next/image';
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react";
 
 function Nav() {
+    const { data: session } = useSession();
     const [click, setClick] = useState(false);
     const handelClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+
+    const handleSignOut = async () => {
+        await signOut({
+            callbackUrl: '/login',
+            redirect: true,
+        });
+    };
 
     return (
         <div className={styles.header}>
@@ -23,7 +31,10 @@ function Nav() {
                         <Link className={styles.menuLink} onClick={closeMobileMenu} href="/faculty">คณะ</Link>
                         <Link className={styles.menuLink} onClick={closeMobileMenu} href="/round">แถว</Link>
                         <Link className={styles.menuLink} onClick={closeMobileMenu} href="/report">ภาพรวม</Link>
-                        <button onClick={() => signOut({ callbackUrl: '/login' })}>Sign out</button>
+                        <div className={styles.signOutContainer}>
+                            {session && <span className={styles.username}>{session.user.name} </span>}
+                            <button className={styles.button} onClick={handleSignOut}>Sign out</button>
+                        </div>
                     </ul>
                     <div className={styles.mobileMenu} onClick={handelClick}>
                         {click ? <FiX /> : <FiMenu />}

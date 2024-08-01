@@ -1,0 +1,41 @@
+.backdrop {
+    display: flex;
+    height: 100vh;
+    background-image: linear-gradient(180deg, rgba(246, 218, 40, 1) 0%, rgba(255, 153, 36, 1) 100%);
+}
+
+.box {
+    margin: auto;
+    width: 60%;
+    height: auto;
+    display: grid;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 1px 9px 8px rgba(0, 0, 0, 0.1);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.img {
+    background: url('/bgRmuti.jpg');
+    filter: brightness(133%);
+    background-size: cover;
+    background-position: 52%;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.boxright {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgb(255, 255, 255);
+}
+
+.text {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+}

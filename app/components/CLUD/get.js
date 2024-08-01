@@ -27,7 +27,7 @@ async function getData(param, type = '') {
         }
     };
 
-    const url = type ? `http://localhost:3000/API/${param}?type=${type}` : `http://localhost:3000/API/${param}`;
+    const url = type ? `http://localhost:3000/api/${param}?type=${type}` : `http://localhost:3000/api/${param}`;
     const res = await fetch(url, postData);
     if (!res.ok) {
         throw new Error("cannot fetch");
