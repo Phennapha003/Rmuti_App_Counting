@@ -3,7 +3,7 @@
 async function postData(endpoint, data) {
     try {
         const response = await fetch(`http://localhost:3000/api/${endpoint}`, {
-            method: 'POST',
+            method: 'POST', // Changed from 'PUT' to 'POST'
             headers: {
                 'Content-Type': 'application/json'
             },

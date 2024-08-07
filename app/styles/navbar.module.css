@@ -23,6 +23,7 @@
 .menu {
     display: flex;
     list-style-type: none;
+    align-items: center;
 }
 
 .menuLink {
@@ -31,21 +32,40 @@
     color: #000;
     font-size: large;
     font-weight: bold;
+    font-family: 'Sarabun', sans-serif;
 }
 
 .mobileMenu {
     display: none;
 }
 
+.signOutContainer {
+    display: flex;
+    align-items: center;
+}
+
 .username {
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 16px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: large;
     font-weight: bold;
-    color: #333;
+    color: green;
+    margin-right: 1rem;
 }
 
 .button {
     font-weight: bold;
+    background-color: darkred; /* Dark red background */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 3px;
+}
+
+.button:hover {
+    background-color: #b22222;
+    /* Darker shade of red on hover */
 }
 
 @media screen and (max-width: 800px) {
@@ -53,6 +73,10 @@
         display: block;
         color: #000;
         font-size: 2rem;
+    }
+
+    .headerContainer {
+        width: 95%;
     }
 
     .header {
@@ -94,7 +118,6 @@
 
     .menu li {
         padding-right: 0;
-
     }
 
     .menuLink {
@@ -108,13 +131,20 @@
     }
 
     .username {
-        font-family: 'Noto Sans Thai', sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffffffcb;
+        display: none; /* Hide username in responsive view */
     }
 
     .button {
+        background-color: transparent; /* Remove background color */
+        color: #262020; /* White text color */
         font-weight: bold;
+        font-size: large;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    .button:hover {
+        background-color: #DE7D24; /* Orange background color on hover */
     }
 }

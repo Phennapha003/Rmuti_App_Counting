@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import styles from "@/app/styles/edit_department.module.css"
 
 async function getFaculty() {
-    const res = await fetch('http://localhost:3000/API/faculty', { method: "GET" });
+    const res = await fetch('http://localhost:3000/api/faculty', { method: "GET" });
     if (!res.ok) {
         throw new Error("Cannot fetch faculty data");
     }
@@ -73,7 +73,7 @@ export default function EditAddDepartment() {
 
                 const body = JSON.stringify({ id: facultyId, name: updatedFaculty.name, total: updatedFaculty.total, rname: updatedFaculty.rname });
 
-                const response = await fetch('http://localhost:3000/API/faculty', {
+                const response = await fetch('http://localhost:3000/api/faculty', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

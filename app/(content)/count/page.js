@@ -7,6 +7,22 @@ import Navber from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import getData from '@/app/components/CLUD/get';
 
+async function updateCounter(current) {
+    const postData = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ current })
+    };
+
+    const res = await fetch('http://localhost:3000/api/counter', postData);
+    if (!res.ok) {
+        throw new Error("Failed to update counter");
+    }
+    return res.json();
+}
+
 export default function Count() {
     const { data: session, status } = useSession();
     const [count, setCount] = useState(0);
@@ -30,21 +46,48 @@ export default function Count() {
                 setCount(data.count[0].current);
             }
             if (data.total && data.total.length > 0) {
-                setName(data.total[0].totalSum || 0);
+                setName(data.total[0].totalSum - data.count[0].current || 0);
             }
         } catch (error) {
             console.error("Error fetching data:", error);
         }
     }
 
-    function handleCountChange(event) {
+    async function handleCountChange(event) {
         const newValue = parseInt(event.target.value, 10) || 0;
         setCount(newValue);
+        try {
+            await updateCounter(newValue);
+        } catch (error) {
+            console.error("Error updating counter:", error);
+        }
     }
 
-    function handleNameChange(event) {
+    async function handleNameChange(event) {
         const newValue = parseInt(event.target.value, 10) || 0;
         setName(newValue);
+    }
+
+    async function incrementCount() {
+        const newCount = count + 1;
+        setCount(newCount);
+        setName(name - 1);
+        try {
+            await updateCounter(newCount);
+        } catch (error) {
+            console.error("Error updating counter:", error);
+        }
+    }
+
+    async function decrementCount() {
+        const newCount = count - 1;
+        setCount(newCount);
+        setName(name + 1);
+        try {
+            await updateCounter(newCount);
+        } catch (error) {
+            console.error("Error updating counter:", error);
+        }
     }
 
     if (status === 'loading') {
@@ -96,12 +139,8 @@ export default function Count() {
 
                             <div className={styles.innerBoxFlex73}>
                                 <div className={styles.btnClick}>
-                                    <button className={`${styles.btnPlus} ${styles.btnClick}`} onClick={() => { setCount(count + 1); setName(name - 1); }}>เพิ่มจำนวน</button>
-                                    <button className={`${styles.btnDelete} ${styles.btnClick}`} onClick={() => { setCount(count - 1); setName(name + 1); }}>ลดจำนวน</button>
-                                </div>
-                                <div className={styles.btnClick}>
-                                    <button className={`${styles.btnMorning} ${styles.btnClick}`} onClick={() => fetchData('morning')}>เช้า</button>
-                                    <button className={`${styles.btnAfternoon} ${styles.btnClick}`} onClick={() => fetchData('afternoon')}>บ่าย</button>
+                                    <button className={`${styles.btnPlus} ${styles.btnClick}`} onClick={incrementCount}>เพิ่มจำนวน</button>
+                                    <button className={`${styles.btnDelete} ${styles.btnClick}`} onClick={decrementCount}>ลดจำนวน</button>
                                 </div>
                             </div>
                         </div>

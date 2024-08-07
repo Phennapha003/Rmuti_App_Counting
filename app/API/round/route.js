@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import pool from "@/app/lib/mysql";
+
 export async function GET(request) {
     try {
         const connection = await pool.getConnection();
         const query = `
-            SELECT round.idround, round.name, SUM(faculty.total) as total
+            SELECT round.idround, round.name, COALESCE(SUM(faculty.total), 0) as total
             FROM round
             LEFT JOIN faculty ON round.idround = faculty.idround
             GROUP BY round.idround, round.name
@@ -13,18 +14,16 @@ export async function GET(request) {
         connection.release();
         return NextResponse.json({ round: rows });
     } catch (error) {
-        return NextResponse.json({ error }, { status: 500 });
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
-
 
 export async function PUT(request) {
     try {
         const body = await request.json();
         const { id, name, total } = body;
 
-        // Validate request body fields
-        if (!id || !name || !total) {
+        if (!id || !name || total === undefined) {
             return NextResponse.json({ error: "Missing required fields (id, name, total)" }, { status: 400 });
         }
 

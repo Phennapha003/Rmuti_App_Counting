@@ -18,7 +18,11 @@ export default function Round() {
                 throw new Error('Failed to fetch rounds');
             }
             const data = await response.json();
-            setRounds(data);
+            const updatedRounds = data.round.map(round => ({
+                ...round,
+                total: round.total !== null ? round.total : 0,
+            }));
+            setRounds({ round: updatedRounds });
         } catch (error) {
             console.error("Error fetching rounds:", error);
         }
@@ -35,7 +39,7 @@ export default function Round() {
     const handleTotalChange = (index, value) => {
         setRounds(prevState => {
             const updatedRounds = [...prevState.round];
-            updatedRounds[index].total = parseInt(value, 10);
+            updatedRounds[index].total = parseInt(value, 10) || 0;
             return { round: updatedRounds };
         });
     };
@@ -43,7 +47,7 @@ export default function Round() {
     const saveRounds = async () => {
         try {
             for (let roundToUpdate of rounds.round) {
-                const response = await fetch('/API/round', {
+                const response = await fetch('/api/round', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -51,7 +55,7 @@ export default function Round() {
                     body: JSON.stringify({
                         id: roundToUpdate.idround,
                         name: roundToUpdate.name,
-                        total: roundToUpdate.total
+                        total: roundToUpdate.total,
                     }),
                 });
 
@@ -62,7 +66,7 @@ export default function Round() {
 
             console.log('Rounds updated successfully');
             fetchRounds();
-            alert("บันทึกข้อมูลสำเร็จแล้ว");
+            alert("บันทึกข้อมูลเสร็จสิ้นเรียบร้อย");
         } catch (error) {
             console.error('Error updating rounds:', error.message);
         }

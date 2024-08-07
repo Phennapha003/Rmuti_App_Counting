@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navber from "@/app/components/navbar";
+import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";
 import getData from "@/app/components/CLUD/get";
@@ -43,17 +43,13 @@ export default function Faculty() {
         }
     };
 
-    
-
     return (
         <div>
-            <Navber />
+            <Navbar />
             <div className={styles.container}>
-                <div className={styles.ContainerTopic}>รายชื่อหน่วยงาน</div>
-                    
-                {loading ? (<div>Loading...</div>) : (
-                    
-                    <div className={styles.containerTable}>
+                <div className={styles.ContainerTopic} >รายชื่อหน่วยงาน</div>
+                {loading ? (<div>Loading...</div>) :
+                    (<div className={styles.containerTable}>
                         <table className={styles.table}>
                             <thead>
                                 <tr className={styles.tr}>
@@ -77,11 +73,10 @@ export default function Faculty() {
                             </tbody>
                         </table>
                     </div>
-                )}
-
+                    )}
                 <div className={styles.stylesButton}>
                     <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
-                    <Handle_Click path="/edit_department" buttonText="แก้ไข" />
+                    <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
                 </div>
             </div>
             <Footer />
