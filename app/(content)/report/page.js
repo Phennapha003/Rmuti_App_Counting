@@ -1,7 +1,7 @@
 "use client";
 import styles from "@/app/styles/report.module.css";
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
+import Navbar from "@/app/components/navbar_report";
+import Footer from "@/app/components/footer_report";
 import getData from '@/app/components/CLUD/get';
 import { useState, useEffect } from 'react';
 
@@ -13,7 +13,7 @@ export default function GuestUser() {
     const [isMorningComplete, setIsMorningComplete] = useState(false);
     const [initialMorning, setInitialMorning] = useState(0);
     const [initialAfternoon, setInitialAfternoon] = useState(0);
-    const [faculty, setFaculty] = useState('');
+    const [facultyData, setFacultyData] = useState([]);
 
     useEffect(() => {
         fetchData();  // Fetch data initially
@@ -24,19 +24,19 @@ export default function GuestUser() {
 
     async function fetchData() {
         try {
-            const data = await getData('counter');
-            if (data.count && data.count.length > 0) {
-                const current = data.count[0].current;
-                const morning = data.morning || 0;
-                const afternoon = data.afternoon || 0;
-                const totalSum = data.total[0].totalSum || 0;
-                const facultyData = data.faculty || ''; // Assuming the API returns the faculty information
+            const counterData = await getData('counter');
+            const faculty = await getData('faculty'); // Fetch faculty data
+
+            if (counterData.count && counterData.count.length > 0) {
+                const current = counterData.count[0].current;
+                const morning = counterData.morning || 0;
+                const afternoon = counterData.afternoon || 0;
+                const totalSum = counterData.total[0].totalSum || 0;
 
                 setInitialMorning(morning);  // Set initial morning value
                 setInitialAfternoon(afternoon);  // Set initial afternoon value
                 setCurrent(current);
                 setTotal(totalSum - current);
-                setFaculty(facultyData);
 
                 if (current >= morning) {
                     setMorning(0);
@@ -47,6 +47,10 @@ export default function GuestUser() {
                 }
 
                 setAfternoon(afternoon);
+            }
+
+            if (faculty && faculty.faculty) {
+                setFacultyData(faculty.faculty);
             }
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -123,13 +127,40 @@ export default function GuestUser() {
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div className={styles.containFacultyName}>
-                            <div className={styles.FacultyName}>
-                                <h>คณะ</h>
-                                <div>{faculty}</div>
-                            </div>
-                        </div>
+                    {/* New Table for Faculty */}
+                    <div className={styles.facultyTableContainer}>
+                        <table className={styles.facultyTable}>
+                            <thead>
+                                <tr>
+                                    <th>คณะ</th>
+                                    <th>รับแล้ว</th>
+                                    <th>คงเหลือ</th>
+                                    <th className={styles.percentageGreen}>%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {facultyData.map((faculty, index) => {
+                                    // คำนวณคณะก่อนหน้าทั้งหมด
+                                    const previousTotal = facultyData.slice(0, index).reduce((acc, f) => acc + f.total, 0);
+                                    const isPreviousComplete = R_current >= previousTotal;
+
+                                    const received = isPreviousComplete ? Math.min(faculty.total, R_current - previousTotal) : 0;
+                                    const remaining = faculty.total - received;
+                                    const percentage = faculty.total > 0 ? Math.round((received / faculty.total) * 100) : 0;
+
+                                    return (
+                                        <tr key={faculty.idfaculty}>
+                                            <td>{faculty.name}</td>
+                                            <td>{received}</td>
+                                            <td>{remaining}</td>
+                                            <td className={styles.percentageGreen} >{percentage}%</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

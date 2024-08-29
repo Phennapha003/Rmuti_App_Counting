@@ -76,7 +76,7 @@ export default function Faculty() {
                     )}
                 <div className={styles.stylesButton}>
                     <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
-                    <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
+                    <Handle_Click path="/edit_department" buttonText="แก้ไข" />
                 </div>
             </div>
             <Footer />

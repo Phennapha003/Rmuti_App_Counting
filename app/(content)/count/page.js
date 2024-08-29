@@ -27,6 +27,9 @@ export default function Count() {
     const { data: session, status } = useSession();
     const [count, setCount] = useState(0);
     const [name, setName] = useState(0);
+    const [morningTotal, setMorningTotal] = useState(0);
+    const [afternoonTotal, setAfternoonTotal] = useState(0);
+    const [totalGraduates, setTotalGraduates] = useState(0);
     const router = useRouter();
 
     useEffect(() => {
@@ -39,13 +42,16 @@ export default function Count() {
         }
     }, [session, status, router]);
 
-    async function fetchData(type = '') {
+    async function fetchData() {
         try {
-            const data = await getData('counter', type);
+            const data = await getData('counter');
             if (data.count && data.count.length > 0) {
                 setCount(data.count[0].current);
             }
-            if (data.total && data.total.length > 0) {
+            if (data.total) {
+                setTotalGraduates(data.total[0].totalSum || 0);
+                setMorningTotal(data.morning || 0);
+                setAfternoonTotal(data.afternoon || 0);
                 setName(data.total[0].totalSum - data.count[0].current || 0);
             }
         } catch (error) {
@@ -66,6 +72,14 @@ export default function Count() {
     async function handleNameChange(event) {
         const newValue = parseInt(event.target.value, 10) || 0;
         setName(newValue);
+    }
+
+    if (status === 'loading') {
+        return <p>Loading...</p>;
+    }
+
+    if (!session) {
+        return null;
     }
 
     async function incrementCount() {
@@ -90,14 +104,6 @@ export default function Count() {
         }
     }
 
-    if (status === 'loading') {
-        return <p>Loading...</p>;
-    }
-
-    if (!session) {
-        return null;
-    }
-
     return (
         <>
             <Navber />
@@ -110,19 +116,19 @@ export default function Count() {
                                 <div className={styles.innerBox}>
                                     <h3>จำนวนบัณฑิตทั้งหมด</h3>
                                     <div className={styles.numInnerBox}>
-                                        <label>4000</label>
+                                        <label>{totalGraduates}</label>
                                     </div>
                                 </div>
                                 <div className={styles.innerBox}>
                                     <h3>จำนวนบัณฑิตรอบเช้า</h3>
                                     <div className={styles.numInnerBox}>
-                                        <label>2500</label>
+                                        <label>{morningTotal}</label>
                                     </div>
                                 </div>
                                 <div className={styles.innerBox}>
                                     <h3>จำนวนบัณฑิตรอบบ่าย</h3>
                                     <div className={styles.numInnerBox}>
-                                        <label>1500</label>
+                                        <label>{afternoonTotal}</label>
                                     </div>
                                 </div>
                             </div>

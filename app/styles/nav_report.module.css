@@ -1,0 +1,57 @@
+.container {
+    max-width: auto;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background: #fff;
+    height: 120px;
+}
+
+.logoContainer .logo {
+    margin-top: 8px;
+}
+
+@media screen and (max-width: 800px) {
+
+    .header {
+        background: #fff;
+        height: 100px;
+    }
+
+    .logoContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoContainer .logo {
+        height: 5%;
+        max-width: 70%;
+    }
+
+}
+
+@media screen and (max-width: 667px) {
+
+    .header {
+        background: #fff;
+        height: 100px;
+    }
+
+    .logoContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoContainer .logo {
+        height: 5%;
+        max-width: 70%;
+        margin-top: 8px;
+    }
+
+}

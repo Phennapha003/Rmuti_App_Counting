@@ -1,7 +1,6 @@
 .container {
     max-width: auto;
     margin: 0;
-    font-family: 'Sarabun';
 }
 
 .header {
@@ -17,13 +16,14 @@
 }
 
 .logoContainer .logo {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .menu {
     display: flex;
     list-style-type: none;
     align-items: center;
+    /* Ensure alignment */
 }
 
 .menuLink {
@@ -54,7 +54,8 @@
 
 .button {
     font-weight: bold;
-    background-color: darkred; /* Dark red background */
+    background-color: darkred;
+    /* Dark red background */
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -76,17 +77,16 @@
     }
 
     .headerContainer {
-        width: 95%;
+        width: 90%;
     }
 
-    .header {
-        padding: 0 2rem;
+    .logoContainer {
+        width: 90%;
     }
 
     .logoContainer .logo {
-        margin-top: 10px;
-        height: auto;
-        max-width: 85%;
+        height: 30%;
+        width: 80%;
     }
 
     .menu {
@@ -102,9 +102,9 @@
     }
 
     .menu.active {
-        background: #111;
+        background: #f49b49;
         left: 0;
-        opacity: 0.95;
+        opacity: 0.9;
         z-index: 1;
         padding-left: 0;
         align-content: center;
@@ -126,17 +126,20 @@
         justify-content: center;
         height: 10vw;
         padding: 10px 0;
-        color: #fff;
+        color: 262020;
         font-weight: bold;
     }
 
     .username {
-        display: none; /* Hide username in responsive view */
+        display: none;
+        /* Hide username in responsive view */
     }
 
     .button {
-        background-color: transparent; /* Remove background color */
-        color: #262020; /* White text color */
+        background-color: transparent;
+        /* Remove background color */
+        color: #262020;
+        /* White text color */
         font-weight: bold;
         font-size: large;
         border: none;
@@ -145,6 +148,8 @@
     }
 
     .button:hover {
-        background-color: #DE7D24; /* Orange background color on hover */
+        background-color: #DE7D24;
+        /* Orange background color on hover */
     }
+
 }

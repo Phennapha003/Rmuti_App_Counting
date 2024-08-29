@@ -38,6 +38,11 @@
     justify-content: space-between;
     /* จัดระยะห่างระหว่าง input fields */
     align-items: center;
+
+}
+
+.Table1 input {
+    border-radius: 10px;
 }
 
 .Containers {
@@ -63,27 +68,39 @@
     margin: 20px;
 }
 
-.buttonDown {
-    font-family: 'Sarabun', sans-serif;
-    background-color: #f3a023;
-    /* สีพื้นหลัง */
+.buttonBack {
+    padding: 10px 20px;
+    background-color: red;
     color: white;
-    /* สีตัวอักษร */
-    padding: 5px 20px;
-    /* ระยะห่างภายในปุ่ม */
     border: none;
-    /* ไม่มีขอบ */
-    border-radius: 5px;
-    /* มุมโค้ง */
+    border-radius: 4px;
     cursor: pointer;
-    /* เปลี่ยนเคอร์เซอร์เมื่ออยู่เหนือปุ่ม */
+    margin: 10px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
 }
 
+.buttonSave {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
+}
+
+
 .inputField {
-    width: calc(20% - 20px);
+    width: calc(30% - 20px);
     padding: 8px;
+    /* Reduced padding */
     margin: 10px auto;
+    /* Center vertically and horizontally */
     border: 1px solid #ffffff;
+    /* Reduced border width */
     resize: vertical;
     border: none;
     border: 2px solid rgba(93, 93, 93, 0.808);
@@ -128,12 +145,12 @@
 
 /* Style for the select box */
 .formselect {
-    width: calc(32% - 20px);
+    width: 20%;
     padding: 8px 10px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid rgba(93, 93, 93, 0.808);
-    border-radius: 4px;
+    border-radius: 10px;
     margin-left: 5px;
 }
 
@@ -154,75 +171,4 @@
 .inputnumber,
 .formselect {
     font-family: 'Sarabun', sans-serif;
-}
-
-
-@media (max-width: 600px) {
-    .Table1 {
-
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        color: rgb(0, 0, 0);
-        border: 1px solid #ffffff;
-        margin: 0 auto;
-
-    }
-
-    .inputField {
-        margin: 10px auto;
-        width: calc(90% - 20px);
-        border: 1px solid #ffffff;
-        border: none;
-        border: 2px solid rgba(93, 93, 93, 0.808);
-        border-radius: 4px;
-        margin-left: 5px;
-        margin-left: 22px;
-    }
-
-
-    .formselect {
-        width: 90%;
-        padding: 8px 10px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid rgba(93, 93, 93, 0.808);
-        margin-left: 2px;
-    }
-
-
-}
-
-
-@media (min-width: 601px) and (max-width: 1024px) {
-    .Table1 {
-        display: block;
-        flex-direction: column;
-        width: 100%;
-        color: rgb(0, 0, 0);
-        border: 1px solid #ffffff;
-        margin: 0 auto;
-
-    }
-
-    .inputField {
-        margin: 10px auto;
-        width: calc(70% - 20px);
-        border: 1px solid #ffffff;
-        border: none;
-        border: 2px solid rgba(93, 93, 93, 0.808);
-        border-radius: 4px;
-        margin-left: 22px;
-    }
-
-
-    .formselect {
-        width: 70%;
-        padding: 8px 10px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid rgba(93, 93, 93, 0.808);
-        border-radius: 4px;
-        margin-left: 55px;
-    }
 }

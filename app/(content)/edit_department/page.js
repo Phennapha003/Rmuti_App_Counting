@@ -3,24 +3,19 @@ import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import getData from "@/app/components/CLUD/get";
 import styles from "@/app/styles/edit_department.module.css"
-
-async function getFaculty() {
-    const res = await fetch('http://localhost:3000/api/faculty', { method: "GET" });
-    if (!res.ok) {
-        throw new Error("Cannot fetch faculty data");
-    }
-    return res.json();
-}
 
 export default function EditAddDepartment() {
     const [facultys, setFacultys] = useState([]);
     const roundOptions = ["เช้า ช่วง 1", "เช้า ช่วง 2", "บ่าย ช่วง 1", "บ่าย ช่วง 2"]; // Define your dropdown options here
+    const router = useRouter();
 
     useEffect(() => {
         async function fetchFaculty() {
             try {
-                const data = await getFaculty();
+                const data = await getData('faculty');
                 setFacultys(data.faculty || []);
             } catch (error) {
                 console.error("Error fetching faculty:", error);
@@ -44,8 +39,8 @@ export default function EditAddDepartment() {
 
     const handleRoundChange = (index, value) => {
         const updatedFacultys = [...facultys];
-        updatedFacultys[index].rname = value;
-        setFacultys(updatedFacultys);
+        updatedFacultys[index].rname = value;  // Update rname based on dropdown selection
+        setFacultys(updatedFacultys);  // Update state
     };
 
     const handleSave = async () => {
@@ -89,39 +84,40 @@ export default function EditAddDepartment() {
                 console.log(`Faculty with ID ${facultyId} updated successfully`);
             }
             // Fetch the updated facultys after saving
-            const updatedData = await getFaculty();
+            const updatedData = getData('faculty');
             setFacultys(updatedData.faculty || []);
         } catch (error) {
             console.error('Error updating faculty:', error.message);
         }
+        router.push("/faculty")
     };
 
     return (
         <div >
             <Navbar />
-            <p className={styles.BodyContainer}>หน่วยงาน</p>
-            <div className={styles.Containers}>
-                {facultys.map((faculty, index) => (
-                    <div key={faculty.idfaculty} className={styles.Table1}>
+            <div className={styles.container}>
+                <p className={styles.BodyContainer}>แก้ไขหน่วยงาน</p>
+                <div className={styles.Containers}>
+                    {facultys.map((faculty, index) => (
+                        <div key={faculty.idfaculty} className={styles.Table1}>
 
-                        หน่วยงาน: <input className={styles.inputField} type="text" value={faculty.name} onChange={(e) => handleNameChange(index, e.target.value)} />&nbsp;
-                        จำนวนเข้ารับ: <input className={styles.inputField} type="text" value={faculty.total} onChange={(e) => handleTotalChange(index, e.target.value)} />&nbsp;
-                        รอบ:
-                        <select className={styles.formselect} value={faculty.rname} onChange={(e) => handleRoundChange(index, e.target.value)}>
-                            {roundOptions.map((option, i) => (
-                                <option key={i} value={option}>{option}</option>
-                            ))}
-                        </select>&nbsp;
-                    </div>
-                ))}
+                            หน่วยงาน: <input className={styles.inputField} type="text" value={faculty.name} onChange={(e) => handleNameChange(index, e.target.value)} />&nbsp;
+                            จำนวนเข้ารับ: <input className={styles.inputField} type="text" value={faculty.total} onChange={(e) => handleTotalChange(index, e.target.value)} />&nbsp;
+                            รอบ:
+                            <select className={styles.formselect} value={faculty.rname} onChange={(e) => handleRoundChange(index, e.target.value)}>
+                                {roundOptions.map((option, i) => (
+                                    <option key={i} value={option}>{option}</option>
+                                ))}
+                            </select>&nbsp;
+                        </div>
+                    ))}
+                </div>
+
+                <div className={styles.ContainerDown}>
+                    <Handle_Click className={styles.buttonBack} path="/faculty" buttonText="ย้อนกลับ" />
+                    <button className={styles.buttonSave} onClick={handleSave}>บันทึก</button>
+                </div>
             </div>
-
-            <div className={styles.ContainerDown}>
-                <Handle_Click className={styles.buttonDown} path="/faculty" buttonText="ย้อนกลับ" />
-                <button className={styles.buttonDown} onClick={handleSave}>บันทึก</button>
-            </div>
-
             <Footer />
-        </div>
-    );
+        </div>)
 }

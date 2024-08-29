@@ -1,17 +1,54 @@
 .headers {
     width: 100%;
+    /* ใช้ vw เพื่อให้ความกว้างเต็มหน้าจอ */
     height: 100%;
+    /* กำหนดความสูงที่ต้องการ */
     text-align: center;
     justify-content: center;
     align-items: center;
+    /* จัดกึ่งกลางแนวตั้ง */
     background-color: white;
     display: flex;
     z-index: 1000;
+    /* ทำให้ header อยู่ด้านบน */
 }
+
+.percentageGreen {
+    background-color: rgb(0, 186, 0);
+}
+
+.facultyTableContainer {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.facultyTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.facultyTable th,
+.facultyTable td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: center;
+}
+
+.facultyTable th {
+    background-color: #DE7D24;
+    color: black;
+    height: 30px;
+    font-size: 20px;
+}
+
 
 .bg {
     height: 100%;
     width: 100%;
+    /* ความกว้างเต็มหน้าจอ */
+    /* background-image: url("/images/bg-fade.png"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -32,6 +69,7 @@
     padding: 10px;
     margin: auto;
     align-items: center;
+    /* จัดให้อยู่กึ่งกลางในแนวดิ่ง */
 
     width: 900px;
     height: auto;
@@ -167,6 +205,7 @@
 
 .column {
     width: 50%;
+    /* กว้างของคอลัมน์ */
     box-sizing: border-box;
     border: 1px solid #707070;
 }
@@ -186,47 +225,7 @@
 }
 
 
-.FacultyName {
-    display: grid;
-    grid-template-columns: 250px;
-    grid-template-rows: 60px 70px;
-    gap: 0px;
-    background-color: #ffffff00;
-    padding: 5px;
-    margin-top: 24.5px;
-}
 
-.FacultyName>h {
-    background-color: #DE7D24;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 30px;
-    border: 1px solid #000000;
-    font-family: 'Sarabun', sans-serif;
-
-    display: flex;
-    /* ใช้ Flexbox ในการจัดตำแหน่ง */
-    justify-content: center;
-    /* จัดกึ่งกลางในแนวนอน */
-    align-items: center;
-    /* จัดกึ่งกลางในแนวดิ่ง */
-}
-
-.FacultyName>div {
-    background-color: white;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 20px;
-    border: 1px solid #000000;
-    font-family: 'Sarabun', sans-serif;
-
-    display: flex;
-    /* ใช้ Flexbox ในการจัดตำแหน่ง */
-    justify-content: center;
-    /* จัดกึ่งกลางในแนวนอน */
-    align-items: center;
-    /* จัดกึ่งกลางในแนวดิ่ง */
-}
 
 
 .TimeGnGfnTest>div {
@@ -301,11 +300,7 @@
     text-align: center;
 }
 
-.containFacultyName {
-    display: flex;
-    place-items: center;
-    height: 200px;
-}
+
 
 .Container {
     display: flex;
