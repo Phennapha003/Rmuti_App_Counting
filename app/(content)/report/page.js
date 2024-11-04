@@ -1,6 +1,6 @@
 "use client";
 import styles from "@/app/styles/report.module.css";
-import Navbar from "@/app/components/navbar_report";
+import Navber from "@/app/components/navbar_report";
 import Footer from "@/app/components/footer_report";
 import getData from '@/app/components/CLUD/get';
 import { useState, useEffect } from 'react';
@@ -70,7 +70,7 @@ export default function GuestUser() {
 
     return (
         <>
-            <Navbar />
+            <Navber />
             <div className={styles.container}>
                 <div className={styles.bg}>
                     <div className={styles.ContainRow0}>
@@ -152,9 +152,9 @@ export default function GuestUser() {
 
                                     return (
                                         <tr key={faculty.idfaculty}>
-                                            <td>{faculty.name}</td>
-                                            <td>{received}</td>
-                                            <td>{remaining}</td>
+                                            <td className={styles.dataFaculty}>{faculty.name}</td>
+                                            <td className={styles.dataFaculty}>{received}</td>
+                                            <td className={styles.dataFaculty}>{remaining}</td>
                                             <td className={styles.percentageGreen} >{percentage}%</td>
                                         </tr>
                                     );

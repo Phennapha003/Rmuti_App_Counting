@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useState, useEffect } from 'react';
 import MetaRefresh from '@/app/components/meta_refresh';
@@ -104,9 +103,11 @@ export default function SendNotification() {
     return (
         <div>
             <MetaRefresh interval="180" />
-            <h1>Send Notification</h1>
-            {response && <p>Notification sent successfully!</p>}
-            {error && <p>Error: {error}</p>}
+            <center>
+                <h1>Send Notification</h1>
+                {response && <p>Notification sent successfully!</p>}
+                {error && <p>Error: {error}</p>}
+            </center>
         </div>
     );
 }

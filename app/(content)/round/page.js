@@ -1,28 +1,34 @@
 "use client";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
-import styles from "@/app/styles/round.module.css"
 import React, { useState, useEffect } from 'react';
+import { useSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import styles from "@/app/styles/round.module.css";
 
 export default function Round() {
+    const { data: session, status } = useSession();
     const [rounds, setRounds] = useState({ round: [] });
+    const router = useRouter();
 
     useEffect(() => {
-        fetchRounds();
-    }, []);
+        if (status === 'loading') return;
+
+        if (!session) {
+            router.push('/login');
+        } else {
+            fetchRounds();
+        }
+    }, [session, status, router]);
 
     const fetchRounds = async () => {
         try {
-            const response = await fetch('/api/round');
+            const response = await fetch('http://localhost:3000/api/round');
             if (!response.ok) {
                 throw new Error('Failed to fetch rounds');
             }
             const data = await response.json();
-            const updatedRounds = data.round.map(round => ({
-                ...round,
-                total: round.total !== null ? round.total : 0,
-            }));
-            setRounds({ round: updatedRounds });
+            setRounds(data);
         } catch (error) {
             console.error("Error fetching rounds:", error);
         }
@@ -39,7 +45,7 @@ export default function Round() {
     const handleTotalChange = (index, value) => {
         setRounds(prevState => {
             const updatedRounds = [...prevState.round];
-            updatedRounds[index].total = parseInt(value, 10) || 0;
+            updatedRounds[index].total = parseInt(value, 10);
             return { round: updatedRounds };
         });
     };
@@ -55,7 +61,7 @@ export default function Round() {
                     body: JSON.stringify({
                         id: roundToUpdate.idround,
                         name: roundToUpdate.name,
-                        total: roundToUpdate.total,
+                        total: roundToUpdate.total
                     }),
                 });
 
@@ -66,11 +72,18 @@ export default function Round() {
 
             console.log('Rounds updated successfully');
             fetchRounds();
-            alert("บันทึกข้อมูลเสร็จสิ้นเรียบร้อย");
         } catch (error) {
             console.error('Error updating rounds:', error.message);
         }
     };
+
+    if (status === 'loading') {
+        return <div>Loading...</div>;
+    }
+
+    if (!session) {
+        return null;
+    }
 
     return (
         <div>

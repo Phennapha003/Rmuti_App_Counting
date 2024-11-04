@@ -1,4 +1,5 @@
 'use client';
+
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";
@@ -9,7 +10,7 @@ import styles from "@/app/styles/edit_department.module.css"
 
 export default function EditAddDepartment() {
     const [facultys, setFacultys] = useState([]);
-    const roundOptions = ["เช้า ช่วง 1", "เช้า ช่วง 2", "บ่าย ช่วง 1", "บ่าย ช่วง 2"]; // Define your dropdown options here
+    const roundOptions = ["รอบเช้าช่วง 1", "รอบเช้าช่วง 2", "รอบบ่ายช่วง 1", "รอบบ่ายช่วง 2"];  // Define your dropdown options here
     const router = useRouter();
 
     useEffect(() => {
